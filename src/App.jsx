@@ -1,4 +1,5 @@
 // App.jsx
+import { useMemo, useState } from "react";
 import supportIcon from "./assets/icons/support.png.png";
 import gearIcon from "./assets/icons/gear.png.png";
 import truckIcon from "./assets/icons/truck.png.png";
@@ -24,7 +25,56 @@ const featureHighlights = [
   },
 ];
 
+const loginFields = [
+  {
+    id: "email",
+    type: "email",
+    label: "Email Address",
+    placeholder: "Enter your email",
+  },
+  {
+    id: "password",
+    type: "password",
+    label: "Password",
+    placeholder: "Enter your password",
+  },
+];
+
+const registerFields = [
+  {
+    id: "fullName",
+    type: "text",
+    label: "Full Name",
+    placeholder: "Enter your full name",
+  },
+  {
+    id: "email",
+    type: "email",
+    label: "Email Address",
+    placeholder: "Enter your email",
+  },
+  {
+    id: "password",
+    type: "password",
+    label: "Create Password",
+    placeholder: "Create a secure password",
+  },
+  {
+    id: "confirmPassword",
+    type: "password",
+    label: "Confirm Password",
+    placeholder: "Re-enter your password",
+  },
+];
+
 function App() {
+  const [mode, setMode] = useState("login");
+
+  const fields = useMemo(
+    () => (mode === "login" ? loginFields : registerFields),
+    [mode],
+  );
+
   return (
     <div className="min-h-screen bg-slate-100 font-body text-slate-700">
       <div className="mx-auto flex max-w-5xl flex-col items-center px-4 py-12 sm:px-6 lg:px-8">
@@ -39,86 +89,127 @@ function App() {
           {/* LEFT */}
           <div className="w-full max-w-md p-10">
             <div className="flex rounded-full border border-slate-200 bg-slate-50 p-1 text-sm font-medium text-slate-500">
-              <button className="flex-1 rounded-full bg-primary px-6 py-2 text-white shadow-sm shadow-primary/40 transition hover:bg-primary-dark">
+              <button
+                type="button"
+                onClick={() => setMode("login")}
+                className={`flex-1 rounded-full px-6 py-2 transition ${
+                  mode === "login"
+                    ? "bg-primary text-white shadow-sm shadow-primary/40 hover:bg-primary-dark"
+                    : "text-slate-500 hover:text-primary"
+                }`}
+              >
                 Login
               </button>
-              <button className="flex-1 rounded-full px-6 py-2 text-slate-500 transition hover:text-primary">
+              <button
+                type="button"
+                onClick={() => setMode("register")}
+                className={`flex-1 rounded-full px-6 py-2 transition ${
+                  mode === "register"
+                    ? "bg-primary text-white shadow-sm shadow-primary/40 hover:bg-primary-dark"
+                    : "text-slate-500 hover:text-primary"
+                }`}
+              >
                 Register
               </button>
             </div>
 
             <div className="mt-10 text-center">
               <p className="text-xl font-bold tracking-[0.15em] text-black">
-                Welcome Back!
+                {mode === "login" ? "Welcome Back!" : "Join Medicare"}
               </p>
               <h1 className="mt-2 text-lg font-display font-semibold text-slate-600">
-                Sign in to your Medicare account
+                {mode === "login"
+                  ? "Sign in to your Medicare account"
+                  : "Create your account to start receiving care"}
               </h1>
             </div>
 
             <form className="mt-8 space-y-6">
-              <div className="space-y-1">
-                <label
-                  htmlFor="email"
-                  className="text-sm font-medium text-slate-600"
-                >
-                  Email Address
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 shadow-inner shadow-slate-200/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                />
-              </div>
+              {fields.map((field) => (
+                <div className="space-y-1" key={`${mode}-${field.id}`}>
+                  <label
+                    htmlFor={`${mode}-${field.id}`}
+                    className="text-sm font-medium text-slate-600"
+                  >
+                    {field.label}
+                  </label>
+                  <input
+                    id={`${mode}-${field.id}`}
+                    type={field.type}
+                    placeholder={field.placeholder}
+                    className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 shadow-inner shadow-slate-200/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  />
+                </div>
+              ))}
 
-              <div className="space-y-1">
-                <div className="flex items-center justify-between text-sm font-medium text-slate-600">
-                  <label htmlFor="password">Password</label>
+              {mode === "login" ? (
+                <div className="flex items-center justify-between text-sm text-slate-500">
+                  <label className="inline-flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      className="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40"
+                    />
+                    Remember me
+                  </label>
                   <button
                     type="button"
-                    className="text-primary hover:text-primary-dark"
+                    className="text-xs font-semibold text-primary hover:text-primary-dark"
                   >
                     Forgot password?
                   </button>
                 </div>
-                <input
-                  id="password"
-                  type="password"
-                  placeholder="Enter your password"
-                  className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-700 shadow-inner shadow-slate-200/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40"
-                />
-              </div>
-
-              <div className="flex items-center justify-between text-sm text-slate-500">
-                <label className="inline-flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    className="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40"
-                  />
-                  Remember me
-                </label>
-                <span className="text-xs text-slate-400">
-                  Need help? Contact support
-                </span>
-              </div>
+              ) : (
+                <div className="rounded-xl bg-slate-50 px-4 py-3 text-left text-xs text-slate-500">
+                  <p>
+                    By creating an account you agree to our{" "}
+                    <a
+                      href="#terms"
+                      className="font-semibold text-primary hover:text-primary-dark"
+                    >
+                      Terms of Service
+                    </a>{" "}
+                    and{" "}
+                    <a
+                      href="#privacy"
+                      className="font-semibold text-primary hover:text-primary-dark"
+                    >
+                      Privacy Policy
+                    </a>
+                    .
+                  </p>
+                </div>
+              )}
 
               <button
                 type="submit"
                 className="w-full rounded-xl bg-primary py-3 text-sm font-semibold text-white shadow-lg shadow-primary/40 transition hover:bg-primary-dark"
               >
-                Login
+                {mode === "login" ? "Login" : "Create account"}
               </button>
 
-              <p className="text-center text-sm text-slate-500">
-                Don&apos;t have an account?{" "}
-                <a
-                  href="#register"
-                  className="font-semibold text-primary hover:text-primary-dark"
-                >
-                  Register here
-                </a>
-              </p>
+              {mode === "login" ? (
+                <p className="text-center text-sm text-slate-500">
+                  Don&apos;t have an account?{" "}
+                  <button
+                    type="button"
+                    onClick={() => setMode("register")}
+                    className="font-semibold text-primary hover:text-primary-dark"
+                  >
+                    Register here
+                  </button>
+                </p>
+              ) : (
+                <p className="text-center text-sm text-slate-500">
+                  Already registered?{" "}
+                  <button
+                    type="button"
+                    onClick={() => setMode("login")}
+                    className="font-semibold text-primary hover:text-primary-dark"
+                  >
+                    Login instead
+                  </button>
+                </p>
+              )}
             </form>
           </div>
 
