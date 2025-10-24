@@ -81,7 +81,7 @@ function App() {
                   />
                   Remember me
                 </label>
-                <span className="text-xs text-slate-400">Need help? Contact support</span>
+                <span className="text-xs text-slate-400">Need help? Contact support?</span>
               </div>
 
               <button
@@ -109,11 +109,14 @@ function App() {
                 </div>
               </div>
 
-              <div>
-                <h2 className="text-2xl font-display font-semibold">Your Health, Our Priority</h2>
-                <p className="mt-3 text-sm leading-relaxed text-sky-100">
-                  Join thousands of satisfied customers who trust Medicare for their pharmaceutical needs. Fast delivery,
-                  quality medicines, and professional customer support.
+              <div className="mx-auto text-center">
+                <h2 className="text-2xl font-display font-semibold">
+                  Your Health, Our Priority
+                </h2>
+                <p className="mt-3  text-sm leading-relaxed text-sky-100">
+                  Join thousands of satisfied customers who trust Medicare for
+                  their pharmaceutical needs. Fast delivery, quality medicines,
+                  and professional customer support.
                 </p>
               </div>
             </div>
