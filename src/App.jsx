@@ -100,12 +100,12 @@ function App() {
             </form>
           </div>
 
-          <div className="flex flex-1 flex-col justify-between bg-gradient-to-br from-primary via-primary-dark to-primary-light p-10 text-white">
+         <div className="flex flex-1 flex-col justify-between bg-gradient-to-br from-primary via-primary-dark to-primary-light p-10 text-white">
             <div className="space-y-6">
-              <div className="relative mx-auto w-48 sm:mx-0 sm:w-56">
+              <div className="relative mx-auto w-50 sm:mx-15 sm:w-60">
                 <div className="aspect-square w-full rounded-full bg-white/20"></div>
                 <div className="absolute inset-6 rounded-3xl bg-white/90 p-6 shadow-xl">
-                  <div className="h-full rounded-2xl bg-[url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80')] bg-cover bg-center" />
+                  <div className="h-full rounded-2xl bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWhvheeM9tmnDHjS0f-PdpwBZka70JtZEwD6LzUB0X0lHWrdN8')] bg-cover bg-center" />
                 </div>
               </div>
 
