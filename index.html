@@ -2,17 +2,221 @@
 <html lang="vi" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nền tảng quản lý đám mây</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MediCare Portal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="src/styles.css" />
   </head>
-  <body class="font-body bg-slate-950 text-slate-100">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  <body>
+    <div class="page">
+      <header class="page__header">
+        <div class="brand-mark">M</div>
+        <div class="brand-text">
+          <span class="brand-name">MediCare</span>
+          <span class="brand-tagline">Giải pháp y tế đáng tin cậy</span>
+        </div>
+      </header>
+
+      <main class="auth" aria-live="polite">
+        <section class="auth__panel" aria-label="Biểu mẫu xác thực tài khoản">
+          <div class="mode-toggle" role="tablist" aria-label="Chọn chế độ">
+            <button class="mode-toggle__btn is-active" data-mode="login" role="tab" aria-selected="true">
+              Đăng nhập
+            </button>
+            <button class="mode-toggle__btn" data-mode="register" role="tab" aria-selected="false">
+              Đăng ký
+            </button>
+          </div>
+
+          <div class="auth__intro">
+            <p class="auth__eyebrow" data-mode-text="login">Xin chào trở lại!</p>
+            <p class="auth__eyebrow" data-mode-text="register">Bắt đầu chỉ với vài bước</p>
+            <h1 class="auth__headline" data-mode-text="login">Chào mừng trở lại MediCare</h1>
+            <h1 class="auth__headline" data-mode-text="register">
+              Tham gia cùng MediCare ngay hôm nay
+            </h1>
+            <p class="auth__subhead" data-mode-text="login">
+              Đăng nhập để tiếp tục theo dõi đơn thuốc, lịch tái khám và chăm sóc tại nhà.
+            </p>
+            <p class="auth__subhead" data-mode-text="register">
+              Tạo tài khoản mới để đặt lịch khám nhanh chóng và nhận hỗ trợ cá nhân hóa.
+            </p>
+          </div>
+
+          <div class="auth__forms">
+            <form id="login-form" class="auth-form is-active" data-mode="login" novalidate>
+              <div class="field">
+                <label for="login-email">Email</label>
+                <input id="login-email" name="email" type="email" placeholder="you@example.com" autocomplete="username" required />
+              </div>
+              <div class="field">
+                <label for="login-password">Mật khẩu</label>
+                <input
+                  id="login-password"
+                  name="password"
+                  type="password"
+                  placeholder="Nhập mật khẩu"
+                  autocomplete="current-password"
+                  required
+                />
+              </div>
+
+              <div class="form-row">
+                <label class="checkbox">
+                  <input type="checkbox" name="remember" />
+                  <span>Ghi nhớ đăng nhập</span>
+                </label>
+                <button type="button" class="link-button">Quên mật khẩu?</button>
+              </div>
+
+              <section class="captcha" data-mode="login" aria-label="CAPTCHA đăng nhập">
+                <header>
+                  <p class="captcha__title">Xác thực CAPTCHA</p>
+                  <p class="captcha__hint">Nhập chính xác chuỗi ký tự bên dưới để tiếp tục.</p>
+                </header>
+                <canvas class="captcha__canvas" width="240" height="80"></canvas>
+                <div class="captcha__controls">
+                  <input
+                    type="text"
+                    class="captcha__input"
+                    placeholder="Nhập chuỗi CAPTCHA"
+                    inputmode="text"
+                    autocomplete="off"
+                  />
+                  <div class="captcha__buttons">
+                    <button type="button" class="captcha__verify" data-action="verify">Xác nhận</button>
+                    <button type="button" class="captcha__refresh" data-action="refresh">Tải lại</button>
+                  </div>
+                </div>
+                <p class="captcha__status" aria-live="polite"></p>
+              </section>
+
+              <button type="submit" class="cta">Đăng nhập</button>
+              <p class="auth-form__feedback" aria-live="polite"></p>
+              <p class="auth-form__switch">
+                Chưa có tài khoản?
+                <button type="button" class="link-button" data-switch="register">Đăng ký ngay</button>
+              </p>
+            </form>
+
+            <form id="register-form" class="auth-form" data-mode="register" novalidate>
+              <div class="field">
+                <label for="register-name">Họ và tên</label>
+                <input id="register-name" name="fullName" type="text" placeholder="Nguyễn Văn A" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="register-email">Email</label>
+                <input id="register-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="register-password">Mật khẩu</label>
+                <input
+                  id="register-password"
+                  name="password"
+                  type="password"
+                  placeholder="Tạo mật khẩu an toàn"
+                  autocomplete="new-password"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="register-confirm-password">Xác nhận mật khẩu</label>
+                <input
+                  id="register-confirm-password"
+                  name="confirmPassword"
+                  type="password"
+                  placeholder="Nhập lại mật khẩu"
+                  autocomplete="new-password"
+                  required
+                />
+              </div>
+
+              <section class="terms">
+                <p>
+                  Bằng việc tạo tài khoản, bạn đồng ý với
+                  <a href="#terms">Điều khoản sử dụng</a>
+                  và
+                  <a href="#privacy">Chính sách quyền riêng tư</a>
+                  của MediCare.
+                </p>
+              </section>
+
+              <section class="captcha" data-mode="register" aria-label="CAPTCHA đăng ký">
+                <header>
+                  <p class="captcha__title">Xác thực CAPTCHA</p>
+                  <p class="captcha__hint">Chúng tôi cần đảm bảo bạn là con người trước khi tạo tài khoản.</p>
+                </header>
+                <canvas class="captcha__canvas" width="240" height="80"></canvas>
+                <div class="captcha__controls">
+                  <input
+                    type="text"
+                    class="captcha__input"
+                    placeholder="Nhập chuỗi CAPTCHA"
+                    inputmode="text"
+                    autocomplete="off"
+                  />
+                  <div class="captcha__buttons">
+                    <button type="button" class="captcha__verify" data-action="verify">Xác nhận</button>
+                    <button type="button" class="captcha__refresh" data-action="refresh">Tải lại</button>
+                  </div>
+                </div>
+                <p class="captcha__status" aria-live="polite"></p>
+              </section>
+
+              <button type="submit" class="cta">Tạo tài khoản</button>
+              <p class="auth-form__feedback" aria-live="polite"></p>
+              <p class="auth-form__switch">
+                Đã có tài khoản?
+                <button type="button" class="link-button" data-switch="login">Đăng nhập</button>
+              </p>
+            </form>
+          </div>
+        </section>
+
+        <aside class="auth__feature" aria-label="Thông tin lợi ích">
+          <div class="feature-card">
+            <div class="feature-visual"></div>
+            <div class="feature-body">
+              <h2>Chăm sóc sức khỏe toàn diện</h2>
+              <p>
+                Từ đặt lịch khám, quản lý đơn thuốc đến theo dõi chỉ số sức khỏe, MediCare giúp bạn yên tâm chăm sóc bản thân và
+                gia đình mọi lúc mọi nơi.
+              </p>
+            </div>
+          </div>
+
+          <dl class="feature-list">
+            <div class="feature-item">
+              <dt>Giao thuốc nhanh chóng</dt>
+              <dd>Đơn thuốc được xử lý trong ngày và giao tận nhà chỉ trong 2 giờ.</dd>
+            </div>
+            <div class="feature-item">
+              <dt>Bác sĩ được chứng nhận</dt>
+              <dd>Đội ngũ y bác sĩ được cấp phép với hơn 10 năm kinh nghiệm trung bình.</dd>
+            </div>
+            <div class="feature-item">
+              <dt>Hỗ trợ 24/7</dt>
+              <dd>Trò chuyện với đội hỗ trợ bất kỳ lúc nào qua chat, email hoặc hotline.</dd>
+            </div>
+          </dl>
+        </aside>
+      </main>
+
+      <footer class="page__footer">
+        <p>© 2025 MediCare. Mọi quyền được bảo lưu.</p>
+        <nav class="footer-links" aria-label="Liên kết phụ">
+          <a href="#terms">Điều khoản</a>
+          <a href="#privacy">Quyền riêng tư</a>
+          <a href="#support">Hỗ trợ</a>
+        </nav>
+      </footer>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
   </body>
 </html>
