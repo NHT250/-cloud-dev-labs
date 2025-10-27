@@ -50,7 +50,11 @@ const featuredMedicines = [
   },
 ];
 
-function Homepage({ onLoginClick = noop, onRegisterClick = noop }) {
+function Homepage({
+  onLoginClick = noop,
+  onRegisterClick = noop,
+  onNavigateMedicines = noop,
+}) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100">
       <header className="border-b border-slate-200 bg-white/80 backdrop-blur">
@@ -66,11 +70,26 @@ function Homepage({ onLoginClick = noop, onRegisterClick = noop }) {
           </div>
 
           <nav className="flex flex-wrap items-center gap-6 text-sm font-medium text-slate-600">
-            {navigationLinks.map((link) => (
-              <a key={link.label} href={link.href} className="transition hover:text-primary">
-                {link.label}
-              </a>
-            ))}
+            {navigationLinks.map((link) => {
+              if (link.label === "Medicines") {
+                return (
+                  <button
+                    key={link.label}
+                    type="button"
+                    onClick={onNavigateMedicines}
+                    className="transition hover:text-primary"
+                  >
+                    {link.label}
+                  </button>
+                );
+              }
+
+              return (
+                <a key={link.label} href={link.href} className="transition hover:text-primary">
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-3">
@@ -116,7 +135,11 @@ function Homepage({ onLoginClick = noop, onRegisterClick = noop }) {
                   />
                   <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">⌕</span>
                 </div>
-                <button className="h-12 rounded-2xl bg-primary px-6 text-sm font-semibold text-white shadow-soft transition hover:bg-primary-dark">
+                <button
+                  type="button"
+                  onClick={onNavigateMedicines}
+                  className="h-12 rounded-2xl bg-primary px-6 text-sm font-semibold text-white shadow-soft transition hover:bg-primary-dark"
+                >
                   Shop Now
                 </button>
               </div>
