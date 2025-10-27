@@ -8,6 +8,8 @@ const navigationLinks = [
   { label: "Support", href: "#support" },
 ];
 
+const noop = () => {};
+
 const categories = [
   { name: "Pain Relief", description: "Analgesics & anti-inflammatory", icon: "💊" },
   { name: "Vitamins", description: "Daily multivitamin essentials", icon: "🧬" },
@@ -48,7 +50,7 @@ const featuredMedicines = [
   },
 ];
 
-function Homepage() {
+function Homepage({ onLoginClick = noop, onRegisterClick = noop }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100">
       <header className="border-b border-slate-200 bg-white/80 backdrop-blur">
@@ -72,10 +74,18 @@ function Homepage() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <button className="rounded-xl border border-slate-200 px-5 py-2 text-sm font-semibold text-slate-600 transition hover:border-primary hover:text-primary">
+            <button
+              type="button"
+              onClick={onLoginClick}
+              className="rounded-xl border border-slate-200 px-5 py-2 text-sm font-semibold text-slate-600 transition hover:border-primary hover:text-primary"
+            >
               Login
             </button>
-            <button className="rounded-xl bg-primary px-5 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-primary-dark">
+            <button
+              type="button"
+              onClick={onRegisterClick}
+              className="rounded-xl bg-primary px-5 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-primary-dark"
+            >
               Register
             </button>
           </div>
