@@ -1,3 +1,12 @@
+import paracetamolImg from "../assets/paracetamol-500.png";
+import ibuprofenImg from "../assets/ibuprofen-400.png";
+import omega3Img from "../assets/omega-3.jpg";
+import aspirinImg from "../assets/aspirin-325.jpg";
+import coldFluImg from "../assets/cold-flu-relief.jpg";
+import multivitaminImg from "../assets/multivitamin.jpg";
+import vitaminCImg from "../assets/vitamin-c.jpg";
+import calciumDImg from "../assets/calcium-d.jpg";
+import skinRepairImg from "../assets/skin-repair.jpg";
 const categories = [
   { name: "Pain Relief", count: 24 },
   { name: "Vitamins", count: 18 },
@@ -42,8 +51,7 @@ const productCards = [
     description: "Effective relief from headaches and fever.",
     price: "$7.99",
     rating: 4.8,
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80",
+    image: paracetamolImg,
     badge: "Bestseller",
   },
   {
@@ -51,65 +59,56 @@ const productCards = [
     description: "Boost your immunity with natural antioxidants.",
     price: "$12.40",
     rating: 4.9,
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80",
+    image: vitaminCImg,
   },
   {
     name: "Ibuprofen 400mg",
     description: "Quick relief for pain and inflammation.",
     price: "$9.60",
     rating: 4.6,
-    image:
-      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=400&q=80",
+    image: ibuprofenImg,
   },
   {
     name: "Omega-3 Fish Oil",
     description: "Supports heart and brain health.",
     price: "$18.90",
     rating: 4.7,
-    image:
-      "https://images.unsplash.com/photo-1612277799201-ccb5f9e4e02b?auto=format&fit=crop&w=400&q=80",
+    image: omega3Img,
   },
   {
     name: "Calcium + Vitamin D",
     description: "Bone strength support for all ages.",
     price: "$16.50",
     rating: 4.5,
-    image:
-      "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&w=400&q=80",
+    image: calciumDImg,
   },
   {
     name: "Cold & Flu Relief",
     description: "Multi-symptom relief day and night.",
     price: "$11.20",
     rating: 4.6,
-    image:
-      "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=400&q=80",
+    image: coldFluImg,
   },
   {
     name: "Daily Multivitamin",
     description: "Complete nutrition for busy lifestyles.",
     price: "$14.80",
     rating: 4.8,
-    image:
-      "https://images.unsplash.com/photo-1584308972272-8eba5fe9d4be?auto=format&fit=crop&w=400&q=80",
+    image: multivitaminImg,
   },
   {
     name: "Aspirin 325mg",
     description: "Trusted relief for pain and fever.",
     price: "$6.40",
     rating: 4.4,
-    image:
-      "https://images.unsplash.com/photo-1583947215259-38e31be8758a?auto=format&fit=crop&w=400&q=80",
+    image: aspirinImg,
   },
   {
     name: "Skin Repair Cream",
     description: "Dermatologist-approved soothing formula.",
     price: "$21.50",
     rating: 4.9,
-    image:
-      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=400&q=80",
-    badge: "New",
+    image: skinRepairImg,
   },
 ];
 
@@ -129,8 +128,12 @@ function Medicines({ onNavigateHome, onLoginClick, onRegisterClick }) {
               M
             </button>
             <div>
-              <p className="font-display text-xl font-semibold text-slate-900">Medicare</p>
-              <p className="text-sm text-slate-500">Browse and find the right medicine</p>
+              <p className="font-display text-xl font-semibold text-slate-900">
+                Medicare
+              </p>
+              <p className="text-sm text-slate-500">
+                Browse and find the right medicine
+              </p>
             </div>
           </div>
 
@@ -174,14 +177,19 @@ function Medicines({ onNavigateHome, onLoginClick, onRegisterClick }) {
         <div className="flex flex-col gap-10 lg:flex-row">
           <aside className="lg:w-64">
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-lg font-semibold text-slate-900">Categories</h2>
+              <h2 className="text-lg font-semibold text-slate-900">
+                Categories
+              </h2>
               <p className="mt-1 text-sm text-slate-500">
                 Browse and find the right medicine for you
               </p>
 
               <ul className="mt-6 space-y-3 text-sm text-slate-600">
                 {categories.map((category) => (
-                  <li key={category.name} className="flex items-center justify-between rounded-2xl px-4 py-2 transition hover:bg-primary/5">
+                  <li
+                    key={category.name}
+                    className="flex items-center justify-between rounded-2xl px-4 py-2 transition hover:bg-primary/5"
+                  >
                     <span>{category.name}</span>
                     <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-500">
                       {category.count}
@@ -206,8 +214,12 @@ function Medicines({ onNavigateHome, onLoginClick, onRegisterClick }) {
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
               <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
-                  <h1 className="font-display text-3xl font-semibold text-slate-900">All Medicines</h1>
-                  <p className="mt-1 text-sm text-slate-500">Browse and find the right medicine for you</p>
+                  <h1 className="font-display text-3xl font-semibold text-slate-900">
+                    All Medicines
+                  </h1>
+                  <p className="mt-1 text-sm text-slate-500">
+                    Browse and find the right medicine for you
+                  </p>
                 </div>
                 <div className="flex items-center gap-3 rounded-2xl bg-slate-100 px-4 py-2 text-sm text-slate-600">
                   <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
@@ -239,7 +251,9 @@ function Medicines({ onNavigateHome, onLoginClick, onRegisterClick }) {
                     placeholder="Search medicines..."
                     className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-5 text-sm text-slate-700 shadow-inner focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                   />
-                  <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">⌕</span>
+                  <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">
+                    ⌕
+                  </span>
                 </div>
                 <select className="h-12 rounded-2xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-600 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30">
                   {filters.purposes.map((purpose) => (
@@ -273,10 +287,16 @@ function Medicines({ onNavigateHome, onLoginClick, onRegisterClick }) {
                       className="h-32 w-32 rounded-2xl object-cover shadow-inner"
                     />
                   </div>
-                  <h3 className="mt-6 text-lg font-semibold text-slate-900">{product.name}</h3>
-                  <p className="mt-2 text-sm text-slate-500">{product.description}</p>
+                  <h3 className="mt-6 text-lg font-semibold text-slate-900">
+                    {product.name}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-500">
+                    {product.description}
+                  </p>
                   <div className="mt-4 flex items-center justify-between">
-                    <span className="text-lg font-semibold text-primary">{product.price}</span>
+                    <span className="text-lg font-semibold text-primary">
+                      {product.price}
+                    </span>
                     <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-600">
                       {ratingLabel(product.rating)}
                     </span>
@@ -312,8 +332,12 @@ function Medicines({ onNavigateHome, onLoginClick, onRegisterClick }) {
       <footer className="border-t border-slate-200 bg-white py-10">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 text-sm text-slate-500 md:grid-cols-4">
           <div>
-            <p className="font-display text-lg font-semibold text-slate-900">Medicare</p>
-            <p className="mt-2">Trusted online pharmacy for your family's wellbeing.</p>
+            <p className="font-display text-lg font-semibold text-slate-900">
+              Medicare
+            </p>
+            <p className="mt-2">
+              Trusted online pharmacy for your family's wellbeing.
+            </p>
           </div>
           <div>
             <p className="font-semibold text-slate-900">Customer Support</p>
@@ -337,7 +361,9 @@ function Medicines({ onNavigateHome, onLoginClick, onRegisterClick }) {
             <p>+800-MEDICARE</p>
           </div>
         </div>
-        <p className="mt-8 text-center text-xs text-slate-400">© 2024 Medicare. All rights reserved.</p>
+        <p className="mt-8 text-center text-xs text-slate-400">
+          © 2024 Medicare. All rights reserved.
+        </p>
       </footer>
     </div>
   );
