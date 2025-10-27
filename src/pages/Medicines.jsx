@@ -53,6 +53,48 @@ const productCards = [
     rating: 4.8,
     image: paracetamolImg,
     badge: "Bestseller",
+    isPrescription: false,
+    usage: [
+      "Giảm đau nhẹ đến trung bình như đau đầu, đau răng, đau cơ.",
+      "Hạ sốt hiệu quả trong các trường hợp cảm cúm.",
+    ],
+    ingredients: ["Paracetamol 500mg", "Tá dược vừa đủ 1 viên"],
+    indications: [
+      "Người lớn và trẻ em trên 12 tuổi cần giảm đau nhanh.",
+      "Bệnh nhân có triệu chứng sốt do cảm cúm, nhiễm khuẩn.",
+    ],
+    dosage: [
+      "Người lớn: 1 viên mỗi 4-6 giờ khi cần thiết, tối đa 4 viên/ngày.",
+      "Trẻ em 12-17 tuổi: 1/2 đến 1 viên mỗi 6 giờ theo hướng dẫn bác sĩ.",
+    ],
+    contraindications: [
+      "Bệnh nhân mẫn cảm với Paracetamol hoặc thành phần của thuốc.",
+      "Người mắc bệnh gan nặng hoặc suy gan.",
+    ],
+    sideEffects: [
+      "Hiếm gặp: phát ban da, mẩn ngứa.",
+      "Rất hiếm: phản ứng quá mẫn, giảm bạch cầu.",
+    ],
+    storage: ["Bảo quản nơi khô ráo, dưới 30°C.", "Tránh ánh sáng trực tiếp và để xa tầm tay trẻ em."],
+    warnings: [
+      "Không dùng chung với thuốc chứa Paracetamol khác.",
+      "Tham khảo ý kiến bác sĩ nếu triệu chứng kéo dài hơn 3 ngày.",
+    ],
+    customerReviews: [
+      {
+        author: "Nguyễn Thanh",
+        rating: 5,
+        date: "12/03/2024",
+        comment:
+          "Thuốc hạ sốt rất nhanh, chỉ sau 30 phút là dễ chịu hơn. Đóng gói chắc chắn.",
+      },
+      {
+        author: "Lê Mai",
+        rating: 4,
+        date: "02/04/2024",
+        comment: "Dễ uống, ít tác dụng phụ. Giá hợp lý cho gia đình.",
+      },
+    ],
   },
   {
     name: "Vitamin C 1000mg",
@@ -60,6 +102,26 @@ const productCards = [
     price: "$12.40",
     rating: 4.9,
     image: vitaminCImg,
+    isPrescription: false,
+    usage: ["Bổ sung vitamin C giúp tăng cường miễn dịch.", "Hỗ trợ chống oxy hóa và làm đẹp da."],
+    ingredients: ["Vitamin C 1000mg", "Hương cam tự nhiên"],
+    indications: ["Người cần nâng cao sức đề kháng", "Người hút thuốc, làm việc căng thẳng"],
+    dosage: ["Uống 1 viên sau bữa ăn sáng"],
+    contraindications: [
+      "Không dùng cho người mẫn cảm với vitamin C.",
+      "Thận trọng với người có tiền sử sỏi thận.",
+    ],
+    sideEffects: ["Buồn nôn nhẹ nếu uống khi đói", "Tiêu chảy khi dùng liều cao"],
+    storage: ["Đậy kín nắp, tránh ẩm"],
+    warnings: [],
+    customerReviews: [
+      {
+        author: "Minh Châu",
+        rating: 5,
+        date: "28/02/2024",
+        comment: "Vị cam dễ uống, uống đều đặn thấy khỏe hơn hẳn.",
+      },
+    ],
   },
   {
     name: "Ibuprofen 400mg",
@@ -67,6 +129,29 @@ const productCards = [
     price: "$9.60",
     rating: 4.6,
     image: ibuprofenImg,
+    isPrescription: true,
+    usage: [
+      "Giảm đau và kháng viêm trong các bệnh lý cơ xương khớp.",
+      "Hạ sốt khi các thuốc khác không đáp ứng.",
+    ],
+    ingredients: ["Ibuprofen 400mg"],
+    indications: ["Đau viêm khớp", "Đau răng, đau sau phẫu thuật"],
+    dosage: ["Người lớn: 1 viên mỗi 6-8 giờ, tối đa 3 viên/ngày"],
+    contraindications: [
+      "Không dùng cho bệnh nhân loét dạ dày tiến triển.",
+      "Chống chỉ định cho phụ nữ mang thai 3 tháng cuối.",
+    ],
+    sideEffects: ["Đau thượng vị", "Chóng mặt, buồn nôn"],
+    storage: ["Bảo quản nơi mát, tránh ẩm"],
+    warnings: ["Sử dụng theo chỉ định bác sĩ", "Không dùng cùng NSAID khác"],
+    customerReviews: [
+      {
+        author: "Hữu Lộc",
+        rating: 4,
+        date: "08/01/2024",
+        comment: "Giảm đau nhanh nhưng cần uống sau ăn để tránh đau dạ dày.",
+      },
+    ],
   },
   {
     name: "Omega-3 Fish Oil",
@@ -74,6 +159,16 @@ const productCards = [
     price: "$18.90",
     rating: 4.7,
     image: omega3Img,
+    isPrescription: false,
+    usage: ["Hỗ trợ tim mạch", "Cải thiện trí nhớ và thị lực"],
+    ingredients: ["Dầu cá tinh khiết 1000mg", "EPA 300mg", "DHA 200mg"],
+    indications: ["Người có nhu cầu bổ sung omega-3", "Người ít ăn cá biển"],
+    dosage: ["Uống 1-2 viên sau bữa ăn"],
+    contraindications: ["Không dùng cho người dị ứng hải sản"],
+    sideEffects: ["Ợ mùi cá nhẹ"],
+    storage: ["Tránh ánh nắng trực tiếp"],
+    warnings: [],
+    customerReviews: [],
   },
   {
     name: "Calcium + Vitamin D",
@@ -81,6 +176,23 @@ const productCards = [
     price: "$16.50",
     rating: 4.5,
     image: calciumDImg,
+    isPrescription: false,
+    usage: ["Bổ sung canxi cho người lớn tuổi", "Hỗ trợ phát triển xương cho trẻ em"],
+    ingredients: ["Canxi carbonat", "Vitamin D3"],
+    indications: ["Người loãng xương", "Phụ nữ mang thai"],
+    dosage: ["Người lớn: 1 viên x 2 lần/ngày"],
+    contraindications: ["Không dùng cho bệnh nhân tăng canxi máu"],
+    sideEffects: ["Đầy bụng nếu uống khi đói"],
+    storage: ["Để nơi khô ráo"],
+    warnings: [],
+    customerReviews: [
+      {
+        author: "Thu Hà",
+        rating: 5,
+        date: "05/03/2024",
+        comment: "Uống 2 tháng thấy giảm đau mỏi lưng rõ rệt.",
+      },
+    ],
   },
   {
     name: "Cold & Flu Relief",
@@ -88,6 +200,16 @@ const productCards = [
     price: "$11.20",
     rating: 4.6,
     image: coldFluImg,
+    isPrescription: false,
+    usage: ["Giảm ho, sổ mũi, nghẹt mũi"],
+    ingredients: ["Paracetamol", "Dextromethorphan", "Phenylephrine"],
+    indications: ["Cảm lạnh, cảm cúm"],
+    dosage: ["Người lớn: 2 viên mỗi 6 giờ"],
+    contraindications: ["Không dùng cho bệnh nhân cao huyết áp chưa kiểm soát"],
+    sideEffects: ["Buồn ngủ nhẹ"],
+    storage: ["Để tránh ánh sáng"],
+    warnings: ["Đọc kỹ hướng dẫn trước khi dùng"],
+    customerReviews: [],
   },
   {
     name: "Daily Multivitamin",
@@ -95,6 +217,16 @@ const productCards = [
     price: "$14.80",
     rating: 4.8,
     image: multivitaminImg,
+    isPrescription: false,
+    usage: ["Bổ sung vitamin tổng hợp hằng ngày"],
+    ingredients: ["Vitamin nhóm B", "Vitamin A", "Khoáng chất thiết yếu"],
+    indications: ["Người bận rộn, ăn uống thất thường"],
+    dosage: ["Uống 1 viên sau bữa sáng"],
+    contraindications: ["Không dùng cho trẻ dưới 12 tuổi"],
+    sideEffects: ["Nước tiểu vàng đậm là bình thường"],
+    storage: ["Đậy kín nắp sau khi sử dụng"],
+    warnings: [],
+    customerReviews: [],
   },
   {
     name: "Aspirin 325mg",
@@ -102,6 +234,26 @@ const productCards = [
     price: "$6.40",
     rating: 4.4,
     image: aspirinImg,
+    isPrescription: true,
+    usage: ["Giảm đau, hạ sốt", "Chống kết tập tiểu cầu theo chỉ định"],
+    ingredients: ["Aspirin 325mg"],
+    indications: ["Đau nhẹ", "Phòng ngừa huyết khối theo kê đơn"],
+    dosage: ["1 viên mỗi 4-6 giờ khi cần, tối đa 6 viên/ngày"],
+    contraindications: [
+      "Không dùng cho trẻ em mắc thủy đậu hoặc cúm.",
+      "Chống chỉ định trong loét dạ dày.",
+    ],
+    sideEffects: ["Kích ứng dạ dày", "Chảy máu cam"],
+    storage: ["Bảo quản nơi khô, thoáng"],
+    warnings: ["Chỉ sử dụng theo hướng dẫn bác sĩ"],
+    customerReviews: [
+      {
+        author: "Quốc Vinh",
+        rating: 4,
+        date: "10/02/2024",
+        comment: "Giảm đau tốt nhưng cần uống kèm thức ăn để bảo vệ dạ dày.",
+      },
+    ],
   },
   {
     name: "Skin Repair Cream",
@@ -109,12 +261,34 @@ const productCards = [
     price: "$21.50",
     rating: 4.9,
     image: skinRepairImg,
+    isPrescription: false,
+    usage: ["Phục hồi da kích ứng", "Giữ ẩm cho da khô"],
+    ingredients: ["Ceramide", "Panthenol", "Niacinamide"],
+    indications: ["Da khô nứt nẻ", "Da kích ứng sau điều trị"],
+    dosage: ["Thoa lớp mỏng 2-3 lần/ngày"],
+    contraindications: ["Không dùng trên vết thương hở"],
+    sideEffects: ["Châm chích nhẹ lúc mới thoa"],
+    storage: ["Đóng nắp sau khi dùng, bảo quản nơi mát"],
+    warnings: [],
+    customerReviews: [
+      {
+        author: "Bảo Anh",
+        rating: 5,
+        date: "15/04/2024",
+        comment: "Da hồi phục nhanh, chất kem thấm tốt không nhờn rít.",
+      },
+    ],
   },
 ];
 
 const ratingLabel = (rating) => `${rating}★`;
 
-function Medicines({ onNavigateHome, onLoginClick, onRegisterClick }) {
+function Medicines({
+  onNavigateHome,
+  onLoginClick,
+  onRegisterClick,
+  onSelectProduct = () => {},
+}) {
   return (
     <div className="min-h-screen bg-slate-50">
       <header className="border-b border-slate-200 bg-white/80 backdrop-blur">
@@ -273,6 +447,15 @@ function Medicines({ onNavigateHome, onLoginClick, onRegisterClick }) {
                 <article
                   key={product.name}
                   className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-white to-slate-50 p-5 shadow-sm transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-soft"
+                  onClick={() => onSelectProduct(product)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      onSelectProduct(product);
+                    }
+                  }}
                 >
                   {product.badge ? (
                     <span className="absolute left-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white">
@@ -301,8 +484,11 @@ function Medicines({ onNavigateHome, onLoginClick, onRegisterClick }) {
                       {ratingLabel(product.rating)}
                     </span>
                   </div>
-                  <button className="mt-5 w-full rounded-xl border border-primary bg-white px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white">
-                    Add to Cart
+                  <button
+                    type="button"
+                    className="mt-5 w-full rounded-xl border border-primary bg-white px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white"
+                  >
+                    Xem chi tiết
                   </button>
                 </article>
               ))}
